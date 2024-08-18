@@ -3,7 +3,7 @@
 //session_start();
 
 //Connecting to DB
-$servidor = 'https://pixie-app.netlify.app/';
+$servidor = 'localhost';
 $usuario = 'root';
 $pass = '';
 //$baseDatos = 'test';
