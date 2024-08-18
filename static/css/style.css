@@ -1,0 +1,2581 @@
+/* POPPINS GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ---------------- ROOT VARIABLES ---------------- */
+:root{
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-yellow: #fffb00;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #ebebeb;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 0.6rem 2rem var(--color-light);
+}
+/* ---------------- DARK THEMES VARIABLES ---------------- */
+.dark-theme-variables{
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-info-light: #424242;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+/* notas: cuando se cambia a dark mode se asigna el background, white, dark y demas, cambiando lo de :root a
+    dark-theme-variables*/
+
+/* CONFIGURACION GENERAL */
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    /* border: 3px solid green; con esto vemos el elemento mal posicionado */
+}
+
+html{
+    font-size: 14px;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+}
+
+#div1,#div2,#div4,#div5,#div6{
+    padding: 20px;
+}
+
+a{
+    color: var(--color-dark);
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 0.87rem;
+}
+
+h4{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 0.77rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.profile-img{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted{
+    /*texto solo informativo*/
+    color: var(--color-info-dark);
+}
+
+p{
+    color: var(--color-dark-variant);
+}
+
+b{
+    color: var(--color-dark);
+}
+
+.primary{
+    color: var(--color-primary);
+}
+.danger{
+    color: var(--color-danger);
+}
+.success{
+    color: var(--color-success);
+}
+.warning{
+    color: var(--color-warning);
+}
+.yellow{
+    color: var(--color-yellow);
+}
+
+/* CONFIGURACION PERSONALIZADA */
+.container{
+    display: grid;
+    width: 95%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto;
+}
+
+aside{
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+aside .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside .logo{
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .logo img{
+    width: 2rem;
+    height: 2rem;
+}
+
+aside .close{
+    display: none;
+}
+
+/* =========== SIDEBAR =========== */
+aside .sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3{
+    font-weight: 500;
+}
+
+aside .sidebar a{
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active{
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+
+aside .sidebar a.active:before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+aside .sidebar a.active span{
+    color: var(--color-primary);
+}
+
+aside .sidebar a:hover{
+    color: var(--color-primary);
+}
+
+aside .sidebar a:hover span{
+    margin-left: 1rem;
+}
+
+aside .sidebar .message-count{
+    background: var(--color-danger);
+    color: var(--color-white);
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
+}
+
+aside .version_info{
+    text-align: center;
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+}
+aside .version_info small{
+    background-color: var(--color-white);
+    padding: 1rem
+}
+/* =========== FIN SIDEBAR =========== */
+
+
+
+
+/* =========== MAIN =========== */
+main{
+    margin-top: 1.4rem;
+}
+
+main .left-top{
+    float: left;
+
+}
+
+/* boton + agregar equipo */
+main .agregarEquipo{
+    background-color: var(--color-white);
+    display: inline-flex;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-radius: var(--border-radius-1);
+    border: 3px solid var(--color-info-dark);
+    padding: 10px;
+}
+
+main #btnAgregarEquipo{
+    background-color: var(--color-warning);
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+main #btnAgregarEquipo:hover{
+    scale: 1.1;
+}
+
+main #btnAgregarEquipo span{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+main .textAgregarEquipo{
+    padding: 14px;
+    color: var(--color-dark);
+}
+
+main .date-time{
+    display: grid;
+    float: right;
+    text-align: center;
+}
+
+main .date, .hour{
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 1.6rem;
+}
+
+main .date input[type="date"], input[type="time"]{
+    background: transparent;
+    color: var(--color-dark);
+}
+
+.right .top{
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right .top button{
+    display: none;
+}
+
+.right .theme-toggler{
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .theme-toggler span.active{
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.right .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+/* esto es: los botones de cantidades de equipos */
+main .cards_info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    width: 100%;
+}
+
+main .cards_info > div{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    text-align: center;
+}
+
+main .cards_info > div:hover{
+    box-shadow: none;
+}
+
+main .cards_info > div span {
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+main .cards_info > div.cards_two span {
+    background: var(--color-danger);
+}
+
+main .cards_info > div.cards_three span {
+    background: var(--color-success);
+}
+/*
+main .cards_info > div .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+*/
+main .cards_info h3{
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+main .cards_info .progress{
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+main .cards_info svg{
+    width: 7rem;
+    height: 7rem;
+}
+
+main .cards_info svg circle{
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+
+main .cards_info .cards_one svg circle{
+    stroke-dasharray: 200;
+    stroke-dashoffset: -30;
+}
+
+main .cards_info .cards_two svg circle{
+    stroke-dasharray: 80;
+    stroke-dashoffset: 20;
+}
+
+main .cards_info .cards_three svg circle{
+    stroke-dasharray: 110;
+    stroke-dashoffset: 35;
+}
+
+main .cards_info .progress .number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .cards_info small{
+    margin-top: 1.6rem;
+    display: block;
+}
+/* =========== FIN MAIN =========== */
+
+
+/* RECARGAR BUTTON */
+#recargar_sistema {
+    background-color: #3498db;
+    border: none;
+    color: var(--color-white);
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#recargar_sistema:hover {
+    background-color: #2980b9;
+}
+
+
+/* =========== TABLA EQUIPOS =========== */
+.tablah1_search{
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: var(--color-primary);
+    padding: 10px;
+    color: black;
+}
+/* SEARCH */
+.tablah2_search {
+    display: inline-grid;
+    width: 40%;
+    float: right;
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: var(--color-white);
+
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+
+.bar input {
+    flex-grow: 1;
+    color: var(--color-dark);
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+}
+
+.search-btn {
+    background-color: gray;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    outline: none;
+}
+
+.search-btn:before {
+    content: "🔍";
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+cursor: pointer;
+}
+
+#search_span {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 10px 0 10px 10px;
+    color: #999;
+}
+/* FIN SEARCH */
+
+main .table-phones{
+    margin-top: 2rem;
+}
+
+main .table-phones h2{
+    margin-top: 1.5rem;
+    padding: 0 20px;
+    text-align: center;
+}
+
+main .table-phones .tablah2_search span{
+    display: none;
+    padding: 0 10px 10px 20px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main .table-phones table{
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .table-phones table:hover{
+    box-shadow: none;
+}
+
+main table tbody td{
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark);
+}
+
+main table tbody tr:last-child td{
+    border: none;
+}
+
+main .table-phones a{
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
+
+/* Estilos para ocultar las páginas que no están activas */
+.pagination {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    float: right;
+    margin: 0 2rem 2rem 0;
+    cursor: pointer;
+}
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination li a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+.pagination li.active a {
+    background-color: var(--color-success);
+    color: black;
+    scale: 1.2;
+}
+/* =========== FIN TABLA EQUIPOS =========== */
+  
+/* eliminar */
+.btnEliminar{
+    background-color: var(--color-danger);
+    font-size: 2px;
+    padding: 2px 3px 5px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* =========== POPUPS =========== */
+/* Popup Modal Editar Button */
+.btnOpenEditar{
+    background-color: var(--color-primary);
+    font-size: 2px;
+    padding: 2px 3px 5px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*#editarEquipo {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }*/
+
+
+
+
+  /* The Close Button */
+  .btnClose {
+    background: none;
+    color: var(--color-dark);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .btnClose:hover,
+  .btnClose:focus {
+    color: var(--color-dark-variant);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Popup Modal Mas Detalles Button */
+.btnOpenDetalles{
+    background-color: var(--color-primary);
+    font-size: 2px;
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* POPUP MAS DETALLES Y EDITAR */
+.ModalDetalles {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* SPAN MAS DETALLES */
+#name_equipo, #name_cliente, #name_empresa{
+    padding: 5px;
+    background-color: aquamarine;
+    font-weight: bold;
+    color: black;
+}
+
+.spanTitle{
+    font-size: 1.2em;
+    margin: 10px;
+    float: left;
+}
+
+.ModalEditar {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Popup Modal Agregar Equipo Button */
+/* GENERAL */
+
+#item1{
+    display: block;
+}
+
+/*
+#item1,#item1_cliente,#item2,#item3,#item4,#item5,#finalPedido{
+    width: 50%;
+    margin: 0 auto;
+    height: 50vh;
+    overflow-y: scroll;
+}
+*/
+
+#modeloEquipoTelefono, #modeloEquipoTablet, #modeloEquipoNotebook, #modeloEquipoReloj,
+#colorEquipoTelefono, #colorEquipoTablet, #colorEquipoNotebook, #colorEquipoReloj,
+#popupBtnClientesm, #popupClienteExistente, #popupClienteNuevo, #fallaEquipo, 
+#fallaTablet, #fallaNotebook, #fallaReloj
+{
+    display: none;
+}
+
+#agregarEquipo {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.agregarEquipo_content{
+    background-color: var(--color-white);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--color-dark);
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.agregarEquipo_function{
+    position: relative;
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+.agregarEquipo_function h2{
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.agregarEquipo_function_noscroll{
+    position: relative;
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+    max-height: 50vh; /* Cambiamos 'height' a 'max-height' */
+    overflow-y: auto; /* si supera el height se habilita el overflow scroll, sino no */
+}
+
+.agregarEquipo_function_noscroll h2{
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* editar empresa */
+.btnEditar{
+    padding: 10px;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.agregarItems{
+    margin: 10px 0 30px 0;
+}
+
+.agregarItems button{
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    width: 80px;
+	height: 80px;
+	border-radius: 50%;
+    margin: 10px;
+    font-size: 1.2em;
+}
+.agregarItems button.active{
+    background-color: var(--color-warning);
+    color: black;
+    font-weight: bold;
+}
+
+.buttonsGeneral{
+    display: grid;  
+    grid-gap: 25px;  
+    grid-template-columns: repeat(2, 140px);
+    grid-template-rows: repeat(2, 140px);  
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btnItem{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    position: relative;
+}
+
+.btnItem button{
+    background-color: #c9c9c9;
+    width: 90px;
+	height: 90px;
+	cursor: pointer;
+	border-radius: 50%;
+    margin: 10px;
+
+}
+
+.btnItem button span{
+    font-size: 3rem;
+
+
+}
+.btnItem button .btnText{
+    font-size: 0.5rem;
+    font-weight: 100;
+
+}
+
+/* ITEM 1 CLIENTES */
+.cliente_info{
+width: 100%;
+margin: 10px auto;
+}
+
+#clienteExistente{
+    width: 100%;
+    position: relative;
+}
+#clienteExistente .inputSearch{
+    width: 100%;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    font-size: 1.1em;
+    height: 3em;
+    margin: 0 auto;
+    padding: 10px;
+}
+#clienteExistente .inputSearch::placeholder{
+    color: var(--color-white);
+}
+#clienteExistente .searchIcon{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    color: var(--color-white);
+    transform: translateY(-50%);
+    cursor: pointer;
+}    
+#listaClient{
+    display: none;
+    width: 100%;
+    max-height: 300px;
+    list-style-type: none;
+    background: var(--color-info-dark);
+    color: var(--color-white);
+    font-size: 1.1em;
+    text-align: left;
+    padding: 10px;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+    z-index: 99;
+    position: absolute;
+    cursor: pointer;
+}
+/* Estilos de la selección */
+#selectedClientContainer {
+    display: none;
+    margin-top: 10px;
+    align-items: center;
+    background-color: var(--color-dark);
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%;
+    margin: 10px auto;
+  }
+  
+  #selectedClient {
+    flex-grow: 1;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-warning);
+  }
+  
+  #clearSelection {
+    cursor: pointer;
+    background: none;
+    color: var(--color-white);
+    font-weight: bold;
+  }
+
+#clienteExistente #selectedClientContainer{
+    display: none;
+}
+
+#popupBtnClientes h3{
+    margin-top: 1rem;
+}
+
+.buttonsGeneralCliente{
+    width: 50%;
+    margin: 10px auto;
+}
+
+/* ITEM 3 */
+.datosEquipo{
+    margin: 30px;
+}
+
+.datosEquipo input{
+    width: 40%;
+    height: 3rem;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--color-dark);
+}
+
+.selectItem3 select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background: var(--color-dark);
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color:var(--color-white);
+    cursor:pointer;
+    font-size: 1.3em;
+    font-family: 'Open Sans', sans-serif;
+ }
+ .selectItem3 select::-ms-expand {
+    display: none;
+ }
+ .selectItem3 {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 3em;
+    margin: 10px auto;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+ }
+ .selectItem3::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: var(--color-dark);
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+    color: var(--color-white);
+ }
+
+/* ITEM 4 */
+
+/* EMPRESA */
+.empresaInformacion{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    border: 2px solid var(--color-info-dark);
+    padding: 10px;
+}
+
+.formEmpresa{
+    width: 100%;
+}
+
+.valoresInput{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.valoresLabel{
+    width: 100%;
+    color: var(--color-dark);
+    margin: 15px 0 5px 0;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: left;
+    padding-left: 30px;
+}
+
+/* inputshake y noshake son lo mismo */
+.inputShake{
+    height: 40px;
+    width: 95%;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 10px;
+    border: 1px solid #fff;
+    outline: none;
+    padding: 0 10px;
+    margin: 0 auto;
+    font-size: 1.3em;
+}
+
+
+
+.inputNoshake{
+    height: 40px;
+    width: 95%;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 10px;
+    border: 1px solid #fff;
+    outline: none;
+    padding: 0 10px;
+    margin: 0 auto;
+    font-size: 1.3em;
+}
+
+/* PERIFERICOS CHECKBOX */
+.container_perifericos {
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #41f1b6;
+ }
+
+ .container_perifericos span{
+    font-size: 1.5em;
+ }
+ 
+ .checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+ }
+ 
+ .checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    text-align: left;
+    color: black;
+ }
+ 
+ .checkbox-label input[type="checkbox"] {
+    margin: 5px 20px 5px 5px;
+    scale: 2;
+ }
+
+
+.container_perifericos_editar{
+    width: 100%;
+    padding: 20px;
+    background-color: var(--color-primary);
+}
+
+.container_perifericos_editar label{
+    height: 3rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: black;
+  }
+
+
+
+
+
+
+
+/* ITEM 5 */
+#item5 h3{
+    margin: 20px;
+    color: var(--color-dark);
+}
+
+/* ERROR MENSAJE */
+.error{
+    display: none;
+    color: white;
+    background-color: rgb(136, 13, 13);
+    font-weight: 500;
+    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.error.display_error{
+    display: block;
+    transform: translateY(-30px);
+}
+
+
+
+/* -------------------------------------------------------- */
+/* POPUP MAS DETALLES */
+
+
+.modal-content_detalles{
+    background-color: var(--color-white);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--color-dark);
+    width: 80%;
+    height: 80vh;
+    border-radius: 10px;
+}
+
+.modal-content_detalles span{
+    padding: 10px;
+    display: inline-flex;
+}
+
+.detalles_content {
+    width: 100%; /* Ajustar el ancho al 100% */
+    height: 75%;
+    overflow-y: scroll;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en dispositivos pequeños */
+  }
+
+.itemsLeft {
+    width: 70%;
+    box-sizing: border-box; /* Incluir el padding en el ancho */
+    padding: 10px;
+    display: grid;
+    gap: 40px;
+  }
+
+  .itemsRight {
+    width: 30%;
+    box-sizing: border-box; /* Incluir el padding en el ancho */
+    padding: 10px;
+    display: grid;
+    gap: 40px;
+    
+  }
+
+  .grid_items{
+    display: grid;
+    background-color: #d9ffd9;
+    border-radius: 20px;
+  }
+
+.itemsBottom{
+    width: 100%;
+    padding: 10px;
+}
+
+
+/*
+.detalles_content{
+    display: grid;  
+    grid-gap: 20px;  
+    max-width: 100%;
+    grid-template-columns: repeat(1, 300px);
+}
+
+.infoContainer{
+    width: 100%;
+    display: grid;
+}*/
+
+.detalles_titulo{
+    background-color: #41f1b6;
+    color: black;
+    font-size: 1.4em;
+    width: 100%;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+.detalles_info {
+    color: black;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
+    height: 5em;
+    overflow: auto;
+}
+
+.btnItem .btnOk{
+    background-color: #41f1b6;
+    color: black;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 10px;
+    font-weight: bold;
+}
+
+
+/* -------------------------------------------------------- */
+/* POPUP EDITAR */
+  .editar_content {
+    background-color: var(--color-white);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--color-dark);
+    width: 50%;
+    border-radius: 10px;
+  }
+
+  .editar_content p{
+    color: var(--color-dark);
+  }
+
+  .editar_content h2{
+    font-weight: bold;
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--color-primary);
+    color: black;
+    width: 50%;
+    text-align: left;
+    border-radius: 10px;
+  }
+  
+  /* button editar */
+  .btnOpenEditarUsuario{
+    background-color: var(--color-primary);
+    font-size: 2px;
+    padding: 2px 3px 5px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  /* button editar ADMINISTRADOR */
+  .btnOpenEditarUsuarios{
+    background-color: var(--color-primary);
+    font-size: 2px;
+    padding: 2px 3px 5px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editarScroll{
+    width: 90%;
+    height: 60vh;
+    overflow-y: scroll;
+    margin: 0 auto;
+    border: 1px solid var(--color-dark);
+  }
+
+  #editarScroll .form-editar, .select-editar{
+    margin: 0 auto;
+    padding: 10px;
+    display: grid;
+    background-color: var(--color-primary);
+  }
+
+  #editarScroll .form-editar label, .select-editar label{
+    height: 3rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: black;
+  }
+
+  #editarScroll .form-editar input, .select-editar select{
+    height: 3rem;
+    font-size: 1.3em;
+    padding: 10px;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
+
+  #editarScroll .cerrarEditar{
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-primary);
+  }
+  #editarScroll .cerrarEditar button{
+    width: 150px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: var(--color-success);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+
+  .select-editar {
+    position: relative;
+ }
+
+.select-editar select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+ }
+ .select-editar select::-ms-expand {
+    display: none;
+ }
+ .select-editar::after {
+    content: '\25BC';
+    position: absolute;
+    top: 60%;
+    right: 30px;
+    background: var(--color-white);
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+    color: var(--color-dark);
+    font-size: 1.5em;
+ }
+
+/* CHECKBOX */
+
+.terminado-editar{
+    height: 100px;
+    width: 100%;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: black;
+}
+
+.valoresTerminado{
+    margin-left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+}
+
+.terminadoTitulo{
+    height: 3rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+}
+
+.terminadoLabel{
+    background-color: var(--color-white);
+    display: inline-block;
+    padding: 10px;
+    font-weight: 400;
+}
+.terminadoInput{
+    display: none;
+}
+
+.terminadoInput:checked + .terminadoLabel {
+    color: black;
+    background-color: var(--color-success);
+    scale: 1.2;
+    font-weight: bold;
+}
+
+  .uno{
+    margin-bottom: 20px;
+    width: 50%;
+    float: left;
+  }
+
+
+  /* SELECT EDITAR */
+  #modelo-telefono, #modelo-tablet, #modelo-notebook, #modelo-reloj, #falla-telefono, #falla-tablet, #falla-notebook, #falla-reloj, #color-telefono, #color-tablet, #color-notebook, #color-reloj {
+    display: none;
+  }
+
+
+  /* CHECKBOX */
+/* backup
+.terminado-editar{
+    height: 100px;
+    width: 100%;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: black;
+}
+
+.valoresTerminado{
+    margin-left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+}
+
+.terminadoTitulo{
+    height: 3rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+}
+
+.terminadoLabel{
+    background-color: var(--color-white);
+    display: inline-block;
+    padding: 10px;
+    font-weight: 400;
+}
+.terminadoInput{
+    display: none;
+}
+
+.terminadoInput:checked + .terminadoLabel {
+    color: black;
+    background-color: var(--color-success);
+    scale: 1.2;
+    font-weight: bold;
+}
+
+  .uno{
+    margin-bottom: 20px;
+    width: 50%;
+    float: left;
+  }
+  */
+
+
+/* 
+.form-group select{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    height: 40px;
+    width: 95%;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 10px;
+    border: 1px solid #fff;
+    outline: none;
+    padding: 0 10px;
+    margin: 0 auto;
+    font-size: 1.3em;
+    position: relative;
+}
+
+.form-group select::-ms-expand {
+    display: none;
+ }
+ .form-group select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 0 1em;
+    background: var(--color-dark);
+    cursor: pointer;
+    transition: 0.25s all ease;
+    color: var(--color-white);
+}
+*/
+
+
+
+/*
+================================================== 
+==================================================
+*/
+
+/* ====================== EMPRESA ====================== */
+/* --------- estilos generales --------- */
+/* container Empresa */
+#div3{
+    max-width: 80vw;
+    padding: 20px;
+}
+/* div top (left + right) */
+ .divTop{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+/* div left */
+ .divLeft{
+    margin: 0 auto;
+    width: 30%;
+}
+.divLeftUsuario{
+    width: 30%;
+}
+/* div right */
+ .slider-wrapper {
+    margin: 0 auto;
+    width: 50%;
+}
+/* div middle */
+ .usuariosTable {
+    align-items: center;
+    background-color: var(--color-info-light);
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    border-radius: 10px;
+    padding: 10px;
+}
+/* div middle inside */
+.divLeftUsuariosTable{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+}
+#containerTableUsuarios{
+    width: 70%;
+}
+
+/* select empresa */
+.selectEmpresa {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+ }
+
+ .selectEmpresa span {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+ }
+
+ .selectEmpresa select {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--color-white);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--color-dark);
+ }
+
+/* --------- estilos personalizados --------- */
+ main #btnAgregarEmpresa, main #btnAgregarUsuario, main #btnAgregarUsuario02{
+    background-color: var(--color-warning);
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+main #btnAgregarEmpresa:hover{
+    scale: 1.1;
+}
+
+main #btnAgregarEmpresa span{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* EMPRESAS CAROUSEL */
+#containerEmpresas{
+    background-color: var(--color-info-light);
+    width: 100%;
+    height: 350px;
+    margin: 0 auto;
+    position: relative;
+    /*border: 2px solid var(--color-warning);*/
+    border-radius: var(--border-radius-3);
+    position: relative;
+}
+/* total empresas 1/20... 2/20 ...*/
+.totalEmpresa {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+.spanInfoEmpresa{
+    text-align: center;
+    margin: 5px 0 0 12px;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+  
+.slides-container {
+    height: 350px;
+    width: 100%;
+    max-height: 350px;
+    max-width: 100%;
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .slide {
+    color: var(--color-dark);
+    max-width: 100%;
+    flex-shrink: 0; /* Evita que los elementos se reduzcan en exceso */
+    width: 100%;
+    height: 100%;
+    /*text-align: center;*/
+    /* esto estaba antes y el textalign center no. */
+    flex: 1 0 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .slide .infoEmpresa {
+    width: 50%;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .slide-arrow {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 4rem;
+    background-color: white;
+    border: none;
+    width: 2rem;
+    font-size: 3rem;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 100ms;
+  }
+  
+  .slide-arrow:hover,
+  .slide-arrow:focus {
+    opacity: 1;
+  }
+  
+  #slide-arrow-prev {
+    left: 0;
+    padding-left: 0.25rem;
+    border-radius: 0 2rem 2rem 0;
+  }
+  
+  #slide-arrow-next {
+    right: 0;
+    padding-left: 0.75rem;
+    border-radius: 2rem 0 0 2rem;
+  }
+
+  .btnDominio{
+    cursor: pointer;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
+
+  /* editar empresas */
+    #editarScrollEmpresa{
+        width: 90%;
+        margin: 0 auto;
+        border: 1px solid var(--color-dark);
+        height: 60vh;
+        overflow-y: scroll;
+      }
+    
+      #editarScrollEmpresa .form-editar{
+        margin: 0 auto;
+        padding: 10px;
+        display: grid;
+        background-color: var(--color-primary);
+      }
+    
+      #editarScrollEmpresa .form-editar label{
+        height: 3rem;
+        font-size: 1.3em;
+        font-weight: bold;
+        padding: 10px;
+        background-color: var(--color-primary);
+        color: black;
+      }
+    
+      #editarScrollEmpresa .form-editar input{
+        height: 3rem;
+        font-size: 1.3em;
+        padding: 10px;
+        background-color: var(--color-white);
+        color: var(--color-dark);
+      }
+    
+      #editarScrollEmpresa .cerrarEditar{
+        text-align: center;
+        padding: 10px;
+        background-color: var(--color-primary);
+      }
+      #editarScrollEmpresa .cerrarEditar button{
+        width: 150px;
+        height: 70px;
+        border-radius: 10px;
+        background-color: var(--color-success);
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .totalEmpresa{
+        text-align: center;
+      }
+
+      .infoEmpresa {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .infoDetalle {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .infoDetalle h1{
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+    .infoDetalle div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .infoDetalle h3 {
+        margin-right: 10px;
+    }
+    .space {
+        margin: 10px 0; /* Puedes ajustar el valor de margen según tu preferencia */
+    }
+
+  /* usuarios edit */
+  #editarScrollUsuario{
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid var(--color-dark);
+  }
+
+  #editarScrollUsuario .form-editar{
+    margin: 0 auto;
+    padding: 10px;
+    display: grid;
+    background-color: var(--color-primary);
+  }
+
+  #editarScrollUsuario .form-editar label{
+    height: 3rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: black;
+  }
+
+  #editarScrollUsuario .form-editar input{
+    height: 3rem;
+    font-size: 1.3em;
+    padding: 10px;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
+
+  #editarScrollUsuario .cerrarEditar{
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-primary);
+  }
+  #editarScrollUsuario .cerrarEditar button{
+    width: 150px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: var(--color-success);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* usuarios edit ADMINISTRADOR */
+  #editarScrollUsuarios{
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid var(--color-dark);
+  }
+
+  #editarScrollUsuarios .form-editar, .select-editar{
+    margin: 0 auto;
+    padding: 10px;
+    display: grid;
+    background-color: var(--color-primary);
+  }
+
+  #editarScrollUsuarios .form-editar label, .select-editar label{
+    height: 3rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: black;
+  }
+
+  #editarScrollUsuarios .form-editar input, .select-editar select{
+    height: 3rem;
+    font-size: 1.3em;
+    padding: 10px;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
+
+  #editarScrollUsuarios .cerrarEditar{
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-primary);
+  }
+  #editarScrollUsuarios .cerrarEditar button{
+    width: 150px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: var(--color-success);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+
+
+/* usuarios table */
+
+.titleEmpresa {
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.titleEmpresa span {
+    font-weight: 100;
+}
+.agregarUsuario{
+    background-color: var(--color-white);
+    display: inline-flex;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-radius: var(--border-radius-1);
+    border: 3px solid var(--color-info-dark);
+    padding: 10px;
+}
+
+/* tabla */
+.btnUsuarioEditar{
+    background-color: var(--color-primary);
+    font-size: 2px;
+    padding: 2px 3px 5px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btnUsuarioEliminar{
+    background-color: var(--color-danger);
+    font-size: 2px;
+    padding: 2px 3px 5px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* =========== TABLA USUARIOS =========== */
+.spanTablaUsuarios{
+    margin: 0 0 12px 0;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+#containerTableUsuarios tbody tr {
+    display: none;
+  }
+
+#containerTableUsuarios table{
+    background: var(--color-white);
+    color: var(--color-dark);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+#containerTableUsuarios table:hover{
+    box-shadow: none;
+}
+
+
+/* =========== TABLA EQUIPOS POR EMPRESA =========== */
+#containerTablaEquiposEmpresas div  {
+    margin: 20px 0 12px 0;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+#containerTablaEquiposEmpresas tbody tr {
+    display: none;
+  }
+
+#containerTablaEquiposEmpresas table{
+    background: var(--color-white);
+    color: var(--color-dark);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+#containerTablaEquiposEmpresas table:hover{
+    box-shadow: none;
+}
+
+
+#containerTablaEquiposEmpresas tbody tr {
+    display: none;
+  }
+
+
+/* Agregar Nueva Empresa */
+#agregarEmpresa, #agregarUsuario, #agregarUsuario02, #deleteUser, #deleteUsers, #deleteEquipo {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.agregarEmpresa_content{
+    background-color: var(--color-white);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--color-dark);
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.agregarEmpresa_content h2{
+    text-align: left;
+    margin: 10px;
+}
+
+.datosNuevaEmpresa {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    border: 2px solid var(--color-info-dark);
+    padding: 10px;
+    height: 60vh;
+    overflow-y: scroll;
+}
+
+.confirm-message{
+    font-size: 1.5em;
+}
+
+.mailDelete{
+    background-color: yellow;
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.buttonsDelete{
+    margin: 0 auto;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.buttonsDelete button{
+    width: 130px;
+    height: 60px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+.buttonsDelete button:hover{
+    scale: 1.1;
+}
+
+.buttonsDelete .redDelete{
+    background-color: red;
+    color: black;
+    width: 100px;
+}
+
+.buttonsDelete span{
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+
+/* CONFIGURACION */
+
+#mensajeConfig, #ocultarConfig{
+    display: none;
+}
+
+.containerConfig{
+    width: 100%;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+.tabsMenu{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    display: flex; /* Aplicar el diseño flexbox */
+    justify-content: space-between; /* Espacio entre elementos */
+    flex-wrap: wrap; /* Ajustar en múltiples filas si es necesario */
+}
+
+.tabsMenu a{
+    cursor: pointer;
+}
+
+.tab_item{
+    cursor: pointer;
+    flex-basis: calc(33.33% - 20px); /* Calcular el ancho base, considerando el padding */
+    padding: 20px;
+    box-sizing: border-box; /* Incluir el padding en el ancho total */
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.tab_item.active{
+    background-color: var(--color-warning);
+    font-weight: bold;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.tabsContent{
+    position: relative;
+    padding: 30px;
+    font-size: 1.2em;
+}
+
+
+
+/* ================================================================= */
+/*                         ADMINISTRADOR PHP                         */
+.equipoDelete{
+    background-color: yellow;
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px;
+}
+.empresaDelete{
+    background-color: orange;
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#containerTableUsuarios02{
+    width: 100%;
+}
+
+#containerTableUsuarios02 table{
+    background: var(--color-white);
+    color: var(--color-dark);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+#containerTableUsuarios02 table:hover{
+    box-shadow: none;
+}
+
+.centered-cell {
+    position: relative;
+    text-align: center;
+}
+
+.maskedPassword {
+    display: inline-block;
+    text-align: center;
+}
+
+.btnShowHide {
+    position: absolute;
+    right: 0;
+    background: none;
+}
+
+
+
+/* admin y supervisor nombre empresa */
+.textEmpresa{
+    height: 40px;
+    width: 45%;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 10px;
+    border: 1px solid #fff;
+    outline: none;
+    padding: 0 10px;
+    margin: 0 auto;
+    font-size: 1.3em;
+}
+.nombreEmpresa{
+    height: 40px;
+    width: 45%;
+    background: var(--color-dark-variant);
+    color: var(--color-white);
+    border-radius: 10px;
+    border: 1px solid #fff;
+    outline: none;
+    padding: 0 10px;
+    margin: 0 auto;
+    font-size: 1.3em;
+}
+
+
+#showInputClient, #showSelectEmpresa, #labelEmpresa, #labelCliente{
+    display: none;
+}
+
+
+/* IMEI INPUTS */
+/* Estilos para el borde rojo y verde */
+.valid-input {
+    border: 2px solid green;
+}
+
+.invalid-input {
+    border: 2px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ====================== MEDIA QUERIES ====================== */
+/* =========== TABLET =========== */
+@media screen and (max-width: 1200px){
+    .container{
+        width: 94%;
+        grid-template-columns: 7rem auto;
+    }
+
+    aside .logo h2{
+        display: none;
+    }
+
+    aside .sidebar h3{
+        display: none;
+    }
+
+    aside .sidebar a{
+        width: 5.6rem;
+    }
+
+    aside .sidebar a:last-child{
+        position: relative;
+        margin-top: 1.8rem;
+    }
+
+    main .cards_info{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    main .table-phones{
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+    }
+
+    main .table-phones table{
+        width: 83vw;
+    }
+
+    /* no se porque saca estas 2... revisar 
+    main table thead tr th:last-child,
+    main table thead tr th:first-child{
+        display: none;
+    }
+
+    main table tbody tr th:last-child,
+    main table tbody tr th:first-child{
+        display: none;
+    }*/
+}
+/* =========== FIN TABLET =========== */
+
+/* =========== MOBILE =========== */
+@media screen and (max-width: 768px){
+    .container{
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    aside{
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    /* animation to sidebar */
+    @keyframes showMenu{
+        to{
+            left: 0;
+        }
+    }
+
+    aside .logo{
+        margin-left: 1rem;
+    }
+
+    aside .logo h2{
+        display: inline;
+    }
+
+    aside .logo h3{
+        display: inline;
+    }
+
+    aside .sidebar h3{
+        display: inline;
+    }
+    
+    aside .sidebar a{
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    aside .sidebar a:last-child{
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    aside .close{
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    main{
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+
+    main .table-phones{
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    main .table-phones table{
+        width: 100%;
+        margin: 0;
+    }
+
+    .right{
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+
+    .right .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .right .top .theme-toggler{
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .right .profile .info{
+        display: none;
+    }
+
+    .right .top button{
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .right .top button span{
+        font-size: 2rem;
+    }
+}
+/* =========== FIN MOBILE =========== */
+
+
+@media screen and (max-width: 450px){
+
+    main .left-top{
+        float: none;
+        text-align: center;
+    }
+    main .date-time{
+        float: none;
+        padding: 0 30px;
+    }
+    .right .top .theme-toggler{
+        left: auto;
+    }
+
+    .agregarItems button{
+        width: 50px;
+        height: 50px;
+    }
+    .agregarEquipo_function_noscroll{
+        width: auto;
+    }
+    .agregarEquipo_function{
+        width: 100%;
+    }
+    .tablah1_search{
+        margin-left: 10%;
+    }
+    .tablah2_search{
+        width: auto;
+        float: none;
+    }
+
+    .table-phones {
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    .table-phones table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .table-phones thead {
+        display: none; /* Ocultamos los encabezados en dispositivos móviles */
+    }
+    
+    .table-phones tbody, .table-phones tr, .table-phones td {
+        display: block;
+        width: 100%;
+    }
+    .table-phones tr {
+        display: block !important;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    
+    .table-phones td {
+        display: block !important;
+        text-align: right;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        font-size: 14px;
+    }
+    
+    .table-phones td:before {
+        content: attr(data-label); /* Muestra el contenido de data-label como un encabezado */
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        font-weight: bold;
+        text-align: left;
+    }
+    
+    .table-phones td:last-child {
+        border-bottom: 0;
+    }
+    
+    .table-phones button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    main {
+        margin-top: 20px;
+    }
+    
+    .spanTitle{
+        font-size: 1em;
+        margin: 0;
+        float: none;
+    }
+    .modal-content_detalles span{
+        display: block;
+    }
+    .itemsLeft, .itemsRight{
+        width: 100%;
+        gap: 10px;
+    }
+
+    .editar_content{
+        width: 80%;
+    }
+    .editar_content h2{
+        font-size: 1.1em;
+        width: 80%;
+    }
+    .terminado-editar{
+        height: initial;
+        width: initial;
+    }
+    .uno{
+        width: initial;
+        float: initial;
+    }
+    .equipoDelete, .empresaDelete {
+        background-color: yellow;
+        color: initial;
+        font-size: 1em;
+        font-weight: normal;
+        padding: initial;
+    }
+
+    #div3{
+        max-width: initial;
+        padding: 0;
+    }
+    .divTop{
+        display: initial;
+    }
+    .spanTablaUsuarios{
+        display: none;
+    }
+    .usuariosTable{
+        display: none;
+    }
+    #tablaEquiposPorEmpresa{
+        display: none;
+    }
+    .spanInfoEmpresa{
+        display: none;
+    }
+    .datosNuevaEmpresa{
+        width: 100%;
+    }
+    .slider-wrapper{
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    /*otros*/
+    .left-top{
+        margin-top: 50px;
+    }
+
+}

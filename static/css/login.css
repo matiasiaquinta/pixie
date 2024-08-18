@@ -1,0 +1,195 @@
+/* FONTS */
+@font-face {
+    font-family: 'Tanker';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Tanker'), url('../font/tanker/Tanker-Regular.otf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #303433;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: rgb(40,172,3);
+    background: linear-gradient(45deg, rgba(40,172,3,1) 0%, rgba(6,90,242,1) 100%);
+}
+
+h1::selection, h4::selection, th::selection, td::selection, p::selection, span::selection, b::selection {
+    background-color: rgb(57, 160, 37);
+    color: white;
+}
+
+.oculto {
+    display: none;
+}
+#icono-mayus{
+    position: absolute;
+    top: 50%;
+    left: 80%;
+}
+
+
+#container {
+    width: 70%;
+    height: 700px;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding-right: 100px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side img {
+    width: 50%;
+    max-width: 50%;
+    border-radius: 100%;
+}
+
+
+.login-container {
+    max-width: 450px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Tanker';
+    text-transform: uppercase;
+    font-size: 5em;
+    text-align: center;
+}
+
+.separator {
+    width: 150px;
+    height: 4px;
+    background-color: #3cc213;
+    margin: 24px;
+}
+
+.welcome-message {
+    text-align: center;
+    font-size: 1em;
+    line-height: 28px;
+    margin-bottom: 30px;
+    color: #696969;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    width: 100%;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+}
+
+input {
+    width: 100%;
+    background: #e6e6e6;
+    color: #333;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+input ~ i {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color   0.4s;
+}
+
+input:focus ~ i {
+    color: #3cc213;
+}
+
+button.submit {
+    color: #fff;
+    padding: 14px 64px;
+    margin: 32px auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-color: #003eb3;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.submit:hover {
+    background-color: #0171f1;
+    transition: 0.3s;
+}
+
+/* EYE PASSWORD GENERAL (para todas las paginas) */
+.password-container{
+    position: relative;
+  }.password-container input[type="password"],
+  .password-container input[type="text"]{
+    width: 100%;
+    /*padding: 12px 36px 12px 12px;*/
+    box-sizing: border-box;
+  }.fa-eye{
+    position: absolute;
+    top: 50%;
+    left: 88%;
+    cursor: pointer;
+  }
+
+/* Responsive */
+@media (max-width: 1000px) {
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .side {
+        /*display:none;*/
+        position: absolute;
+        top: 3%;
+        width: 150px;
+    }
+    
+    #container{
+        padding:10px;
+        width: 90%;
+    }
+    .title{
+        font-size: 4em;
+    }
+}

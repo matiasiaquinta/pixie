@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+
+<style>
+
+.detalles_content {
+    width: 100%; /* Ajustar el ancho al 100% */
+    max-width: 1200px; /* Establecer un ancho máximo */
+    background-color: red;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en dispositivos pequeños */
+  }
+
+  .itemsLeft {
+    background-color: yellow;
+    width: 70%;
+    box-sizing: border-box; /* Incluir el padding en el ancho */
+    padding: 10px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .itemsRight {
+    background-color: green;
+    width: 30%;
+    box-sizing: border-box; /* Incluir el padding en el ancho */
+    padding: 10px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .grid_item_left, .grid_item_right {
+    display: grid;
+    gap: 10px;
+  }
+</style>
+
+</head>
+<body>
+
+  <div class="detalles_content">
+    
+    <div class="itemsLeft">
+      <div class="grid_item_left">
+        <span>hola hola</span>
+        <span>123 123123123123123</span>
+      </div>
+      <div class="grid_item_left">
+        <span>hola hola</span>
+        <span>123 123123123123123 123123123123123 123123123123123123123123123123123123123123123 123123123123123 123123123123123 </span>
+      </div>
+      <div class="grid_item_left">
+        <span>hola hola</span>
+        <span>123 123123123123123</span>
+      </div>
+    </div>
+
+    <div class="itemsRight">
+      <div class="grid_item_right">
+        <span>hola hola</span>
+        <span>123 123123123123123</span>
+      </div>
+      <div class="grid_item_right">
+        <span>hola hola</span>
+        <span>123 123123123123123</span>
+      </div>
+      <div class="grid_item_right">
+        <span>hola hola</span>
+        <span>123 123123123123123</span>
+      </div>
+    </div>
+  
+   
+  </div>
+
+
+</body>
+</html>
